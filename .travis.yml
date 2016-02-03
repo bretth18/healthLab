@@ -1,3 +1,4 @@
+script: npm clean cache
 language: node_js
 sudo: false
 
@@ -9,5 +10,5 @@ node_js:
 notifications:
   slack: mogdev:VDV6JoZSOUH4hbtYXPOZhMdw
 
-before_install:
+
   script: npm clean cache
