@@ -1,0 +1,53 @@
+extends layout
+
+block content
+
+  .row
+    .well.col-md-2(class="connections")
+        h3 Right now
+        p 0
+        h5 active visitors
+    .col-md-10
+      legend Real Time Activity
+      table.table-bordered.table-striped.table-condensed(class="visits")
+        thead 
+          tr
+            td URL 
+            td IP 
+            td Timestamp 
+        tbody
+      legend Page Views 
+      table.table-bordered.table-striped.table-condensed(class="pageViews")
+        thead
+          tr
+            td URL
+            td Page Views 
+        tbody
+        
+  //move script later
+  script. 
+      var pages = {};
+      var lastPageId = 0;
+      socket.on('connect', function() {
+        console.log('Socket connected');
+        socket.on('pageview', function(msg) {
+          console.log('Connections: ' + msg.connection);
+          $('#connections > p').html(msg.connection -1); //account for -1 for own connection 
+          if (msg.url) {
+            if ($('#visits tr').length > 10) {
+               ($('#visits tr:last').remove();)
+            }
+            $('#visits tbody').prepend('<tr><td>' + msg.url + '</td><td>' + msg.ip + '</td><td>' +
+          message.timestamp + '</td></tr>');
+          if (pages[msg.url]) {
+            pages[msg.url].views = pages[msg.url].views + 1;
+            $('#page' + pages[msg.url]).pageId).html(pages[msg.url].views);
+          }
+          else {
+            pages[msg.url] = {views: 1, pageId: ++lastPageId};
+            $('#pageViews tbody').append('<tr><td>' + msg.url + '</td><td id="page' + lastPageId + '">1</td></tr>');
+          }
+        }
+          
+        });
+      });

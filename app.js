@@ -61,6 +61,15 @@ mongoose.connection.on('error', function() {
 /**
  * Express configuration.
  */
+
+var hour = 3600000; //milli
+var day = (hour * 24);
+var week = (day * 7);
+var month = (day * 30);
+
+app.use(express.static( path.join(__dirname, 'public'), { maxAge = week }
+));
+
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -130,8 +139,50 @@ app.post('/account/password', passportConf.isAuthenticated, userController.postU
 app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 
+//dashboard routers
+app.get('/dashboard', dashboardController.getDashboard);
+
 //chat routers
 app.get('/chat', chatController.getChat);
+
+//page view emit socketio
+io.configure('production', function() {
+  io.enable('browser client minification');
+  io.enable('browser client etag');
+  io.enable('browser client gzip');
+  io.set('log level', 1);
+  io.set("polling duration", 10);
+  io.set('transports', [
+    'websocket',
+    'htmlfile',
+    'xhr-polling',
+    'jsonp-polling',
+  ]);
+  io.set('authorization', function(handshakeData, callback) {
+    if (handshakeData.xdomain) {
+      callback('Cross-domain connections are not allowed!');
+    }
+    else{
+      callback(null, true);
+    }
+
+  });
+});
+io.configure('development', function() {
+  io.set('log level', 1);
+  io.set('transports', [
+    'websocket'
+
+  ]);
+  io.set('authorization', function(handshakeData, callback) {
+    if (handshakeData.xdomain) {
+      callback('Cross-domain connections are not allowed');
+    }
+    else .prototype.methodName = function () {
+
+    };
+  })
+})
 
 /**
  * API examples routes.
