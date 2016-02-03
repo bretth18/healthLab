@@ -36,6 +36,7 @@ var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
 
+var chatController = require('./controllers/chat');
 /**
  * API keys and Passport configuration.
  */
@@ -45,6 +46,8 @@ var passportConf = require('./config/passport');
  * Create Express server.
  */
 var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
 /**
  * Connect to MongoDB.
@@ -128,7 +131,7 @@ app.post('/account/delete', passportConf.isAuthenticated, userController.postDel
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 
 //chat routers
-//app.get('/chat', chatController.index);
+app.get('/chat', chatController.getChat);
 
 /**
  * API examples routes.
@@ -219,8 +222,21 @@ app.use(errorHandler());
 /**
  * Start Express server.
  */
-app.listen(app.get('port'), function() {
+server.listen(app.get('port'), function() {
   console.log('Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
 });
+
+
+//socket.io shit
+io.on('connection', function(socket) {
+  socket.emit('greet', { hello: 'Hey there browser boy'});
+  socket.on('respond', function(data) {
+    console.log(data);
+  });
+  socket.on('disconnect', function() {
+    console.log('Socket disconnected');
+  });
+});
+
 
 module.exports = app;
