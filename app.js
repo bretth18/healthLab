@@ -67,7 +67,7 @@ var day = (hour * 24);
 var week = (day * 7);
 var month = (day * 30);
 
-app.use(express.static( path.join(__dirname, 'public'), { maxAge = week }
+app.use(express.static( path.join(__dirname, 'public'), { maxAge: week }
 ));
 
 app.set('port', process.env.PORT || 3000);
@@ -178,11 +178,28 @@ io.configure('development', function() {
     if (handshakeData.xdomain) {
       callback('Cross-domain connections are not allowed');
     }
-    else .prototype.methodName = function () {
+    else {
+      callback(null, true);
+    }
+  });
+});
 
-    };
-  })
-})
+//on socket connection
+io.sockets.on('connection', function(socket) {
+  socket.on('message', function(message) {
+    console.log("Got message: " + message);
+    var ip = socket.handshake.address.address;
+    var url = message;
+    io.sockets.emit('pageview', { 'connections':
+      Object.keys(io.connected).length, 'ip': ip, 'url': url, 'xdomain':
+    sockets.handshake.xdomain, 'timestamp': new Date()});
+  });
+  socket.on('disconnect', function() {
+    console.log("docket disconnected");
+    io.sockets.emit('pageview', { 'connections': Object.keys(io.connected).length});
+  });
+});
+
 
 /**
  * API examples routes.
