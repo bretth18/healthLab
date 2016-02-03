@@ -5,7 +5,12 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+/* import group for our fonts and material design */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.7/css/bootstrap-material-design.css");
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -77,6 +82,20 @@ h1 {
   margin: 0.67em 0;
 }
 
+h1.healthLab-title{
+  font-family: 'Roboto Condensed';
+  font-weight: 700;
+}
+
+h2.h2-heading{
+  font-family: 'Roboto';
+  font-weight: 400;
+}
+
+.well {
+  overflow:hidden;
+  text-align: center;
+}
 mark {
   background: #ff0;
   color: #000;
@@ -267,6 +286,7 @@ th {
   h3 {
     orphans: 3;
     widows: 3;
+    word-wrap: break-word;
   }
   h2,
   h3 {
