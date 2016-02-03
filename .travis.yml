@@ -8,3 +8,6 @@ node_js:
   - "4.2"
 notifications:
   slack: mogdev:VDV6JoZSOUH4hbtYXPOZhMdw
+
+before_install:
+  script: npm clean cache
