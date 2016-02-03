@@ -8,3 +8,5 @@ node_js:
   - v4
   - '0.12'
   - '0.10'
+notifications:
+  slack: mogdev:VDV6JoZSOUH4hbtYXPOZhMdw
