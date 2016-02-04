@@ -35,6 +35,7 @@ var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
+var dashboardController = require('./controllers/dashboard');
 
 var chatController = require('./controllers/chat');
 /**
@@ -47,7 +48,7 @@ var passportConf = require('./config/passport');
  */
 var app = express();
 var server = require('http').Server(app);
-var io = require('socket.io')(server);
+var io = require('socket.io').listen(server);
 
 /**
  * Connect to MongoDB.
@@ -145,6 +146,7 @@ app.get('/dashboard', dashboardController.getDashboard);
 //chat routers
 app.get('/chat', chatController.getChat);
 
+//fart
 //page view emit socketio
 io.configure('production', function() {
   io.enable('browser client minification');
