@@ -1,4 +1,4 @@
-script: npm clean cache
+
 language: node_js
 sudo: false
 
