@@ -17,13 +17,16 @@ block content
     .form-group
       label.col-sm-3.control-label(for='gender') Gender
       .col-sm-4
-        label.radio.col-sm-4
-          input(type='radio', checked=user.profile.gender=='male', name='gender', value='male', data-toggle='radio')
-          span Male
-        label.radio.col-sm-4
-          input(type='radio', checked=user.profile.gender=='female', name='gender', value='female', data-toggle='radio')
-          span Female
+        .well-sm
+          label.radio-button
+            input(type='radio', checked=user.profile.gender=='male', name='gender', value='male', data-toggle='radio')
+            span Male
+          .div
+          label.radio-button
+            input(type='radio', checked=user.profile.gender=='female', name='gender', value='female', data-toggle='radio')
+            span Female
     .form-group
+    //TODO: condition unstyled
       label.col-sm-3.control-label(for='condition') Condition 
         .col-sm-7
           input.form-control(type='text', name='condition' id='condition' value='#{user.condition}')

@@ -19,8 +19,14 @@ html {
 
 body {
   margin: 0;
+  background-color: #EEEEEE;
 }
 
+.condition{
+  margin: 0;
+  
+
+}
 article,
 aside,
 details,
@@ -94,7 +100,7 @@ h2.h2-heading{
 
 .well {
   overflow:hidden;
-  
+
 }
 mark {
   background: #ff0;
