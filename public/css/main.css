@@ -8,7 +8,7 @@
 
 /* import group for our fonts and material design */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.7/css/bootstrap-material-design.css");
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Roboto:500,700);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
 
 html {
@@ -83,7 +83,7 @@ h1 {
 }
 
 h1.healthLab-title{
-  font-family: 'Roboto Condensed';
+  font-family: 'Roboto';
   font-weight: 700;
 }
 
@@ -94,7 +94,7 @@ h2.h2-heading{
 
 .well {
   overflow:hidden;
-  
+
 }
 mark {
   background: #ff0;
