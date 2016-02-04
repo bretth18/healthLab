@@ -12,7 +12,7 @@ var errorHandler = require('errorhandler');
 var lusca = require('lusca');
 var methodOverride = require('method-override');
 var dotenv = require('dotenv');
-//var MongoStore = require('connect-mongo/es5')(session);
+var MongoStore = require('connect-mongo/es5')(session);
 var flash = require('express-flash');
 var path = require('path');
 //var mongoose = require('mongoose');
@@ -48,14 +48,13 @@ var passportConf = require('./config/passport');
  * Create Express server.
  */
 var app = express();
-var server = require('http').createServer();
-var WebSocketServer = require('ws').Server
-var wss = new WebSocketServer({server: server});
-
 var chatHandler = require('./chatHandler');
-wss.on('connection', chatHandler);
-server.on('request', app);
 
+var server = require('http').Server(app);
+var io = require('socket.io').listen(server);
+
+var chat = io.of('/chat')
+.on('connection', chatHandler);
 
 /**
  * Connect to MongoDB.
@@ -159,7 +158,6 @@ app.get('/chat', chatController.getChat);
 
 //fart
 //page view emit socketio
-/*
 io.configure('production', function() {
   io.enable('browser client minification');
   io.enable('browser client etag');
@@ -213,7 +211,6 @@ io.sockets.on('connection', function(socket) {
     io.sockets.emit('pageview', { 'connections': Object.keys(io.connected).length});
   });
 });
-*/
 
 /**
  * API examples routes.

@@ -17,6 +17,7 @@
   </ul>
   <input id="message" value="hi" placeholder="say something"/>
   <input id="send" type="button" value="send"/> 
+  <script src="/socket.io/socket.io.js"></script>
 <script>
 
   var JOIN_CHANNEL = 'JOIN_CHANNEL';
@@ -34,23 +35,22 @@
   var join = document.getElementById("join");
   var create = document.getElementById("create");
 
-  var ws = new WebSocket(`ws://${location.host}`);
-	ws.onopen = function () {
+  var ws = io.connect(`http://${location.host}/chat`);
+	ws.on('connect', function () {
+
     console.log("ws connected");
-	};
+    ws.on('message', function(data) {
+      var command = JSON.parse(data);
+      switch(command.type) {
+      case RECEIVE_MESSAGE:
+        var el = document.createElement("li");
+        el.innerHTML = `${command.channel} | ${command.message.name} : ${command.message.message}`;      
+        chat.appendChild(el);
+        break;
+      }
+    });
+	});
 
-	ws.onmessage = function(e) {
-    var command = JSON.parse(e.data);
-    console.log(command); 
-    switch(command.type) {
-    case RECEIVE_MESSAGE:
-      var el = document.createElement("li");
-      el.innerHTML = `${command.channel} | ${command.message.name} : ${command.message.message}`;      
-      chat.appendChild(el);
-      break;
-    }
-
-	};
 
   var sendMessage = function (message) {
     ws.send(JSON.stringify({

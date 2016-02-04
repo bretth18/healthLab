@@ -9,7 +9,6 @@ var CREATE_CHANNEL = 'CREATE_CHANNEL';
 topics["public"] = Topic();
 
 module.exports = function connectionHandler (ws) {
-
   var subscriptions = [];
 
   var receiveMessage = function (message) {
@@ -23,9 +22,9 @@ module.exports = function connectionHandler (ws) {
   };
 
   ws.on('message', function (msg) {
-    console.log(msg);
+    console.log(command);
     var command = JSON.parse(msg);
-    
+
     switch(command.type) {
     case JOIN_CHANNEL:
       var topic = topics[command.channel];
