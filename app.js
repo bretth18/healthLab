@@ -21,6 +21,7 @@ var expressValidator = require('express-validator');
 var sass = require('node-sass-middleware');
 var _ = require('lodash');
 
+
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
  *
@@ -47,18 +48,23 @@ var passportConf = require('./config/passport');
  * Create Express server.
  */
 var app = express();
+var chatHandler = require('./chatHandler');
+
 var server = require('http').Server(app);
 var io = require('socket.io').listen(server);
+
+var chat = io.of('/chat')
+.on('connection', chatHandler);
 
 /**
  * Connect to MongoDB.
  */
+
 mongoose.connect(process.env.MONGODB || process.env.MONGOLAB_URI);
 mongoose.connection.on('error', function() {
   console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
   process.exit(1);
 });
-
 /**
  * Express configuration.
  */
@@ -202,7 +208,6 @@ io.sockets.on('connection', function(socket) {
   });
 });
 
-
 /**
  * API examples routes.
  */
@@ -292,11 +297,12 @@ app.use(errorHandler());
 /**
  * Start Express server.
  */
+
 server.listen(app.get('port'), function() {
   console.log('Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
 });
 
-
+/*
 //socket.io shit
 io.on('connection', function(socket) {
   socket.emit('greet', { hello: 'Hey there browser boy'});
@@ -307,6 +313,6 @@ io.on('connection', function(socket) {
     console.log('Socket disconnected');
   });
 });
-
+*/
 
 module.exports = app;

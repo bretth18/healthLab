@@ -19,7 +19,11 @@ var userSchema = new mongoose.Schema({
   profile: {
     name: { type: String, default: '' },
     gender: { type: String, default: '' },
+    //specific medical strings for userModel
     condition: { type: String, default: ''},
+    prescriptions: { type: String, default: ''}, //plan to implement page for managing doc/prescriptions
+    doctors: { type: String, default: ''},
+    //TODO: appointments
     location: { type: String, default: '' },
     website: { type: String, default: '' },
     picture: { type: String, default: '' }
