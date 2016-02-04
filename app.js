@@ -12,14 +12,15 @@ var errorHandler = require('errorhandler');
 var lusca = require('lusca');
 var methodOverride = require('method-override');
 var dotenv = require('dotenv');
-var MongoStore = require('connect-mongo/es5')(session);
+//var MongoStore = require('connect-mongo/es5')(session);
 var flash = require('express-flash');
 var path = require('path');
-var mongoose = require('mongoose');
+//var mongoose = require('mongoose');
 var passport = require('passport');
 var expressValidator = require('express-validator');
 var sass = require('node-sass-middleware');
 var _ = require('lodash');
+
 
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
@@ -47,18 +48,26 @@ var passportConf = require('./config/passport');
  * Create Express server.
  */
 var app = express();
-var server = require('http').Server(app);
-var io = require('socket.io').listen(server);
+var server = require('http').createServer();
+var WebSocketServer = require('ws').Server
+var wss = new WebSocketServer({server: server});
+
+var chatHandler = require('./chatHandler');
+wss.on('connection', chatHandler);
+server.on('request', app);
+
 
 /**
  * Connect to MongoDB.
  */
+
+/*
 mongoose.connect(process.env.MONGODB || process.env.MONGOLAB_URI);
 mongoose.connection.on('error', function() {
   console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
   process.exit(1);
 });
-
+*/
 /**
  * Express configuration.
  */
@@ -89,6 +98,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 app.use(methodOverride());
 app.use(cookieParser());
+/*
 app.use(session({
   resave: true,
   saveUninitialized: true,
@@ -98,6 +108,7 @@ app.use(session({
     autoReconnect: true
   })
 }));
+*/
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -148,6 +159,7 @@ app.get('/chat', chatController.getChat);
 
 //fart
 //page view emit socketio
+/*
 io.configure('production', function() {
   io.enable('browser client minification');
   io.enable('browser client etag');
@@ -201,7 +213,7 @@ io.sockets.on('connection', function(socket) {
     io.sockets.emit('pageview', { 'connections': Object.keys(io.connected).length});
   });
 });
-
+*/
 
 /**
  * API examples routes.
@@ -292,11 +304,12 @@ app.use(errorHandler());
 /**
  * Start Express server.
  */
+
 server.listen(app.get('port'), function() {
   console.log('Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
 });
 
-
+/*
 //socket.io shit
 io.on('connection', function(socket) {
   socket.emit('greet', { hello: 'Hey there browser boy'});
@@ -307,6 +320,6 @@ io.on('connection', function(socket) {
     console.log('Socket disconnected');
   });
 });
-
+*/
 
 module.exports = app;

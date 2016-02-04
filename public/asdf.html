@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+</style>
+</head>
+<body>
+
+  <input id="myname" type="text" value="myname" placeholder="whats your name?"/>
+  <input id="channel" type="text" value="public" placeholder"channel name"/>
+  <input id="join" type="button" value="join"/>
+  <input id="create" type="button" value="create"/>
+  <ul id="chat">
+    
+  </ul>
+  <input id="message" value="hi" placeholder="say something"/>
+  <input id="send" type="button" value="send"/> 
+<script>
+
+  var JOIN_CHANNEL = 'JOIN_CHANNEL';
+  var LEAVE_CHANNEL = 'LEAVE_CHANNEL';
+  var MESSAGE_CHANNEL = 'MESSAGE_CHANNEL';
+  var RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
+  var CREATE_CHANNEL = 'CREATE_CHANNEL';
+
+  var chat = document.getElementById("chat");
+  var send = document.getElementById("send");
+  var message = document.getElementById("message");
+  var myname = document.getElementById("myname");
+
+  var channel = document.getElementById("channel");
+  var join = document.getElementById("join");
+  var create = document.getElementById("create");
+
+  var ws = new WebSocket(`ws://${location.host}`);
+	ws.onopen = function () {
+    console.log("ws connected");
+	};
+
+	ws.onmessage = function(e) {
+    var command = JSON.parse(e.data);
+    console.log(command); 
+    switch(command.type) {
+    case RECEIVE_MESSAGE:
+      var el = document.createElement("li");
+      el.innerHTML = `${command.channel} | ${command.message.name} : ${command.message.message}`;      
+      chat.appendChild(el);
+      break;
+    }
+
+	};
+
+  var sendMessage = function (message) {
+    ws.send(JSON.stringify({
+      message, 
+      type: MESSAGE_CHANNEL,
+      channel: channel.value
+    }));
+  };
+
+  function joinChannel (channel) {
+    ws.send(JSON.stringify({
+      type: JOIN_CHANNEL,
+      channel
+    }));
+  }
+
+
+  send.onclick = function (e) {
+    sendMessage({
+      message: message.value,
+      name: myname.value
+    });
+  };
+
+  create.onclick = function(e) {
+    ws.send(JSON.stringify({
+      type: CREATE_CHANNEL,
+      channel: channel.value 
+    }));
+  };
+
+  join.onclick = function (e) {
+    joinChannel(channel.value);
+  };
+</script>
+</body>
+</html>
