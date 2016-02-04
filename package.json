@@ -61,7 +61,6 @@
     "twilio": "^3.3.0-edge",
     "twit": "^2.2.1",
     "validator": "^4.5.2",
-    "ws": "^1.0.1",
     "yui": "^3.18.1"
   },
   "devDependencies": {
