@@ -16,7 +16,7 @@ module.exports = function connectionHandler (ws) {
       type: RECEIVE_MESSAGE
     },message)), err => {
       if (err) {
-        console.error(err);  
+        console.error(err);
       }
     });
   };
@@ -41,7 +41,7 @@ module.exports = function connectionHandler (ws) {
       });
       return;
 
-    case CREATE_CHANNEL: 
+    case CREATE_CHANNEL:
       topics[command.channel] = topics[command.channel] || Topic();
       topics[command.channel].subscribe(receiveMessage);
       return;
@@ -69,7 +69,7 @@ function Topic () {
   function subscribe (f) {
     subscribers.push(f);
     messages.forEach(x => f(x));
-   
+
     return function unsubscribe () {
       var i = subscribers.indexOf(f);
       if (i < 0) return;
@@ -86,7 +86,7 @@ function Topic () {
   }
 
   return {
-    subscribe, 
+    subscribe,
     broadcast
   };
 }

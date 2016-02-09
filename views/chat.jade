@@ -26,6 +26,10 @@ block content
                   span.input-group-btn
                     input#send.btn.btn-info.btn-raised(type='button', value='send')
             script(src='/socket.io/socket.io.js')
+            //CDN Routing to handle io error
+            //TODO: Merge script out of our chat.jade, it's disoragnized and causing errors.
+            script (src='https://cdn.socket.io/socket.io-1.4.5.js')
+
             script.
               var JOIN_CHANNEL = 'JOIN_CHANNEL';
               var LEAVE_CHANNEL = 'LEAVE_CHANNEL';

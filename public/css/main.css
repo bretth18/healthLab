@@ -22,9 +22,10 @@ body {
   background-color: #EEEEEE;
 }
 
+
 .condition{
   margin: 0;
-  
+
 
 }
 article,
@@ -300,6 +301,7 @@ th {
   }
   .navbar {
     display: none;
+    color: #F8BBD0 !important;
   }
   .btn > .caret,
   .dropup > .btn > .caret {
@@ -4818,6 +4820,7 @@ tbody.collapse.in {
   min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;
+
 }
 
 .navbar:before, .navbar:after {
