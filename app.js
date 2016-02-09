@@ -22,6 +22,7 @@ var sass = require('node-sass-middleware');
 var _ = require('lodash');
 
 
+
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
  *
@@ -48,23 +49,29 @@ var passportConf = require('./config/passport');
  * Create Express server.
  */
 var app = express();
-var chatHandler = require('./chatHandler');
-
-var server = require('http').Server(app);
+var server = require('http').createServer();
 var io = require('socket.io').listen(server);
 
-var chat = io.of('/chat')
-.on('connection', chatHandler);
+//websocket
+var WebSocketServer = require('ws').Server
+var wss = new WebSocketServer({server: server});
+
+var chatHandler = require('./chatHandler');
+wss.on('connection', chatHandler);
+server.on('request', app);
+
 
 /**
  * Connect to MongoDB.
  */
+
 
 mongoose.connect(process.env.MONGODB || process.env.MONGOLAB_URI);
 mongoose.connection.on('error', function() {
   console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
   process.exit(1);
 });
+
 /**
  * Express configuration.
  */
@@ -95,6 +102,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 app.use(methodOverride());
 app.use(cookieParser());
+
 app.use(session({
   resave: true,
   saveUninitialized: true,
@@ -104,6 +112,7 @@ app.use(session({
     autoReconnect: true
   })
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -146,6 +155,9 @@ app.post('/account/password', passportConf.isAuthenticated, userController.postU
 app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 
+//appointment routes
+app.get('/appointments', passportConf.isAuthenticated, userController.getAccount);
+
 //dashboard routers
 app.get('/dashboard', dashboardController.getDashboard);
 
@@ -154,6 +166,7 @@ app.get('/chat', chatController.getChat);
 
 //fart
 //page view emit socketio
+
 io.configure('production', function() {
   io.enable('browser client minification');
   io.enable('browser client etag');
@@ -193,20 +206,33 @@ io.configure('development', function() {
 });
 
 //on socket connection
-io.sockets.on('connection', function(socket) {
+//handles socket connection for dashboard
+var nsp = io.of('/dashboard-namespace');
+
+nsp.on('connection', function(socket) {
   socket.on('message', function(message) {
     console.log("Got message: " + message);
     var ip = socket.handshake.address.address;
     var url = message;
-    io.sockets.emit('pageview', { 'connections':
+    nsp.emit('pageview', { 'connections':
       Object.keys(io.connected).length, 'ip': ip, 'url': url, 'xdomain':
     sockets.handshake.xdomain, 'timestamp': new Date()});
   });
   socket.on('disconnect', function() {
-    console.log("docket disconnected");
+    console.log("socket disconnected");
     io.sockets.emit('pageview', { 'connections': Object.keys(io.connected).length});
   });
 });
+
+//handles socket connection for chat
+var nspChat = io.of('/chat-namespace');
+
+nspChat.on('connection', function(socket) {
+  socket.on('message', function(message) {
+
+  })
+})
+
 
 /**
  * API examples routes.
@@ -302,17 +328,17 @@ server.listen(app.get('port'), function() {
   console.log('Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
 });
 
-/*
+
 //socket.io shit
-io.on('connection', function(socket) {
-  socket.emit('greet', { hello: 'Hey there browser boy'});
-  socket.on('respond', function(data) {
-    console.log(data);
-  });
-  socket.on('disconnect', function() {
-    console.log('Socket disconnected');
-  });
-});
-*/
+// io.on('connection', function(socket) {
+//   socket.emit('greet', { hello: 'Hey there browser boy'});
+//   socket.on('respond', function(data) {
+//     console.log(data);
+//   });
+//   socket.on('disconnect', function() {
+//     console.log('Socket disconnected');
+//   });
+// });
+
 
 module.exports = app;
