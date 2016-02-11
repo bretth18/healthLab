@@ -3,3 +3,8 @@
 
 #healthLab
 - reinventing how you manage your health.
+
+##Planned Development
+* Twilio IP Messaging to handle our chat service?
+* Improved user models
+* Task planner/goals page for user
