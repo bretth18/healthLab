@@ -5,6 +5,7 @@
 - reinventing how you manage your health.
 
 ##Planned Development
+* Rewriting entire code base, switching the project to Meteor.js
 * Twilio IP Messaging to handle our chat service?
 * Improved user models
 * Task planner/goals page for user
