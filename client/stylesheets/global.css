@@ -1,0 +1,23 @@
+h1 {
+  font-weight: 100;
+}
+
+
+.loading {
+  padding-top: 100px;
+}
+
+nav {
+  margin-bottom: 24px;
+  font-weight: 200;
+}
+
+ul.side-nav li a {
+  line-height: 44px;
+  padding: 24px;
+  display: block;
+}
+
+ul.side-nav li {
+  float: none;
+}
