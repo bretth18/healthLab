@@ -1,11 +1,9 @@
-
 language: node_js
-sudo: false
-
+node_js:
+  - "0.12"
+before_install:
+  - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-laika/master/configure.sh | /bin/sh"
 services:
   - mongodb
-
-node_js:
-  - "4.2"
-notifications:
-  slack: mogdev:VDV6JoZSOUH4hbtYXPOZhMdw
+env:
+  - LAIKA_OPTIONS="-t 5000"
