@@ -6,13 +6,20 @@
 
 ##Description
 - reinventing how you manage your health.
+- We're providing a tool for patients to connect with their health. Track your diet, prescriptions, appointments, receive real-time analytics on your progress, and compare potential reactions between drugs.
+
+##Information
+* healthLab.io is currently being developed by Brett Henderson (@bretth18).
+* You can get updates on our project from our Twitter here: https://twitter.com/healthLab_io 
 
 ##Contributing
+* Read our Trello Board for Features/Current Development: https://trello.com/b/RQEUfa4H/healthlab-io
 * Pull-Requests are welcome!
-* Talk to us on gitterIM
+* Issues: https://github.com/bretth18/healthLab/issues
+* Talk to us on GitterIM!
 
 
 ##Planned Development
-* Twilio IP Messaging to handle our chat service?
+* Twilio IP Messaging to handle our chat service
 * Improved user models
 * Task planner/goals page for user
