@@ -10,6 +10,10 @@ h1 {
 nav {
   margin-bottom: 24px;
   font-weight: 200;
+  background-color: #f48fb1;
+}
+.footer-copyright {
+  background-color: #f06292;
 }
 
 ul.side-nav li a {
