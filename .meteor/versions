@@ -1,6 +1,6 @@
 accounts-base@1.2.2
 accounts-password@1.1.4
-alanning:roles@1.2.14
+alanning:roles@1.2.15
 aldeed:autoform@5.7.1
 aldeed:collection2@2.9.0
 aldeed:collection2-core@1.1.0
@@ -65,7 +65,7 @@ localstorage@1.0.5
 logging@1.0.8
 matb33:collection-hooks@0.8.1
 materialize:materialize@0.97.5
-mdg:validation-error@0.4.0
+mdg:validation-error@0.5.1
 meteor@1.1.10
 meteor-base@1.0.1
 meteortoys:allthings@2.3.1
@@ -120,7 +120,7 @@ templating-tools@1.0.0
 tracker@1.0.9
 ui@1.0.8
 underscore@1.0.4
-underscorestring:underscore.string@3.2.3
+underscorestring:underscore.string@3.3.4
 url@1.0.5
 useraccounts:core@1.13.1
 useraccounts:iron-routing@1.13.1
@@ -128,5 +128,5 @@ useraccounts:materialize@1.13.1
 webapp@1.2.3
 webapp-hashing@1.0.5
 yasinuslu:blaze-meta@0.3.3
-zimme:active-route@2.0.4_1
+zimme:active-route@2.3.2
 zimme:iron-router-active@2.0.1

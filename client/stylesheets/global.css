@@ -14,6 +14,7 @@ nav {
 }
 .footer-copyright {
   background-color: #f06292;
+  margin-bottom: 24px;
 }
 
 ul.side-nav li a {
@@ -25,3 +26,13 @@ ul.side-nav li a {
 ul.side-nav li {
   float: none;
 }
+
+/*.template-dashboard {
+  float: right;
+  width: 100px;
+}
+
+.current-goals {
+  float: left;
+  width: 100px;
+}*/

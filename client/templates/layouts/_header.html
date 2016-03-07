@@ -15,7 +15,11 @@
 
         <ul id="user-dropdown" class="dropdown-content">
           {{#if currentUser}}
-            <li><a href="#" data-action="logout"><i class="mdi-action-lock"></i> Sign Out</a></li>
+            <li>
+              <a href="#" data-action="logout"><i class="mdi-action-lock"></i> Sign Out</a>
+              <a href="/profile"><i class="mdi-perm-identity"></i>Profile</a>
+            </li>
+
           {{else}}
             <li><a href="{{ pathFor 'atSignIn' }}">Sign in</a></li>
             <li><a href="{{ pathFor 'atSignUp' }}">Register</a></li>
