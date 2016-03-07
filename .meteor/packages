@@ -24,7 +24,6 @@ aldeed:collection2
 gildaspk:autoform-materialize@=0.0.25
 fortawesome:fontawesome
 meteortoys:allthings
-standard-minifiers
 meteor-base
 mobile-experience
 mongo
@@ -40,3 +39,5 @@ spacebars
 check
 useraccounts:iron-routing
 underscorestring:underscore.string
+standard-minifier-css
+standard-minifier-js
