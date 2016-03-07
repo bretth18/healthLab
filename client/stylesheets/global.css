@@ -17,6 +17,10 @@ nav {
   margin-bottom: 24px;
 }
 
+.page-footer {
+  margin-bottom: 24px;
+  color: #f06292;
+}
 ul.side-nav li a {
   line-height: 44px;
   padding: 24px;
@@ -27,6 +31,16 @@ ul.side-nav li {
   float: none;
 }
 
+/* shit for footer */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
 /*.template-dashboard {
   float: right;
   width: 100px;
