@@ -1,5 +1,9 @@
 Items = new Mongo.Collection('items');
+//Users = new Mongo.Collection('users');
 
+
+
+//helpers for Items
 Items.helpers({
 
 });
