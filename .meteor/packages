@@ -43,3 +43,6 @@ standard-minifier-css
 standard-minifier-js
 selaias:fit-api
 selaias:accounts-fitbit
+selaias:fitbit
+oauth
+oauth1
