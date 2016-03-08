@@ -9,6 +9,23 @@ Template.dashboard.events({
     Items.remove(this._id);
     toast('Item Removed!', 4000);
   },
+  'click #runkeeperLogin': function (event, template) {
+    if (!credentialRequestCompleteCallback && typeof optons === 'function'){
+      credentialRequestCompleteCallback = options;
+      options = {/*credential options */}
+    }
+    var configureRoute = ServiceConfiguration.findOne({
+      service: 'runkeeper'
+    });
+    if(!config){
+      credentialRequestCompleteCallback && credentialRequestCompleteCallback(
+        new ServiceConfiguration.ConfigError());
+        return;
+    }
+    var loginUrl = Meteor.Meteor.absoluteUrl(loginPath);
+
+
+  }
   'click #fitbitLogin': function(event, template) {
 
     Fitbit = {};
