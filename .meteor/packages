@@ -41,3 +41,5 @@ useraccounts:iron-routing
 underscorestring:underscore.string
 standard-minifier-css
 standard-minifier-js
+selaias:fit-api
+selaias:accounts-fitbit

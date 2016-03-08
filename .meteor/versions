@@ -1,4 +1,5 @@
 accounts-base@1.2.3-beta.12
+accounts-oauth@1.1.9-beta.12
 accounts-password@1.1.5-beta.12
 alanning:roles@1.2.15
 aldeed:autoform@5.7.1
@@ -101,6 +102,8 @@ msavin:jetsetter@1.5.2
 msavin:mongol@1.6.2
 npm-bcrypt@0.7.8_2
 npm-mongo@1.4.40-beta.12
+oauth@1.1.7-beta.12
+oauth1@1.1.6-beta.12
 observe-sequence@1.0.8-beta.12
 ordered-dict@1.0.4
 promise@0.5.2-beta.12
@@ -113,6 +116,9 @@ reload@1.1.5-beta.12
 retry@1.0.4
 reywood:publish-composite@1.4.2
 routepolicy@1.0.7-beta.12
+selaias:accounts-fitbit@0.2.0
+selaias:fit-api@0.2.0
+selaias:fitbit@0.2.0
 service-configuration@1.0.6-beta.12
 session@1.1.2-beta.12
 sha@1.0.4
