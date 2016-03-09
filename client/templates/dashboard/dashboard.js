@@ -2,13 +2,13 @@ Template.dashboard.rendered = function() {
 
 };
 
-
-
 Template.dashboard.events({
+  //action for deleteItem
   'click #deleteItem': function(event, template) {
     Items.remove(this._id);
     toast('Item Removed!', 4000);
   },
+  //action for runkeeper auth
   'click #runkeeperLogin': function (event, template) {
     if (!credentialRequestCompleteCallback && typeof optons === 'function'){
       credentialRequestCompleteCallback = options;
@@ -24,8 +24,8 @@ Template.dashboard.events({
     }
     var loginUrl = Meteor.Meteor.absoluteUrl(loginPath);
 
-
-  }
+  },
+  //action for fitbit auth
   'click #fitbitLogin': function(event, template) {
 
     Fitbit = {};
@@ -35,6 +35,7 @@ Template.dashboard.events({
       if (!credentialRequestCompleteCallback && typeof options === 'function') {
         credentialRequestCompleteCallback = options;
         options = {};
+        
       }
       var config = ServiceConfiguration.configurations.findOne({
         service: 'fitbit'
