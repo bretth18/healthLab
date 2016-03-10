@@ -2,7 +2,7 @@ accounts-base@1.2.3-beta.12
 accounts-oauth@1.1.9-beta.12
 accounts-password@1.1.5-beta.12
 alanning:roles@1.2.15
-aldeed:autoform@5.7.1
+aldeed:autoform@5.8.1
 aldeed:collection2@2.9.0
 aldeed:collection2-core@1.1.0
 aldeed:schema-deny@1.0.1
@@ -43,7 +43,7 @@ email@1.0.9-beta.12
 fastclick@1.0.8-beta.12
 fortawesome:fontawesome@4.5.0
 geojson-utils@1.0.5-beta.12
-gildaspk:autoform-materialize@0.0.25
+gildaspk:autoform-materialize@0.0.26
 gwendall:body-events@0.1.6
 handlebars@1.0.4
 hot-code-push@1.0.1-beta.12
