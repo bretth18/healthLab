@@ -1,4 +1,10 @@
 <template name="dashboard">
+  <!-- this is our sidebar -->
+  <ul id="slide-out" class="side-nav">
+    <li><a href="#!">First Sidebar Link</a></li>
+    <li><a href="#!">Second Sidebar Link</a></li>
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
   <!--this is our task list -->
   <div class="template-dashboard container-fluid">
     <a class="btn-floating btn-large waves-effect waves-light red lighten-2 right" href="{{pathFor 'items.new'}}"><i class="mdi-content-add"></i></a>
@@ -6,15 +12,15 @@
     <!-- ITEMS SECTION -->
     <ul class="collection">
       {{#each items}}
-        <li class="collection-item avatar">
-          <i class="mdi-action-done circle red lighten-2"></i>
-          <span class="title">{{ name }}</span>
-          <p class="truncate">
-            {{ description }}
-          </p>
-          <span class="secondary-content"><i class="mdi-action-grade"></i> {{ rating }}</span>
-          <button class="btn-small btn btn-flat pull-right" id="deleteItem"><i class="fa fa-trash"></i></button>
-        </li>
+      <li class="collection-item avatar">
+        <i class="mdi-action-done circle red lighten-2"></i>
+        <span class="title">{{ name }}</span>
+        <p class="truncate">
+          {{ description }}
+        </p>
+        <span class="secondary-content"><i class="mdi-action-grade"></i> {{ rating }}</span>
+        <button class="btn-small btn btn-flat pull-right" id="deleteItem"><i class="fa fa-trash"></i></button>
+      </li>
       {{/each}}
     </ul>
   </div>

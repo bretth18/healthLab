@@ -1,0 +1,8 @@
+<template name="chat">
+  <form class="new-message">
+  <input type="text" name="message" placeholder="What's on your mind?">
+</form>
+{{#each messages}}
+  <p>{{author}} : {{body}}</p>
+{{/each}}
+</template>

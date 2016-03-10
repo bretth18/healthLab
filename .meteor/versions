@@ -65,6 +65,7 @@ launch-screen@1.0.6-beta.12
 livedata@1.0.15
 localstorage@1.0.6-beta.12
 logging@1.0.9-beta.12
+manuelschoebel:wait-on-lib@0.3.0
 matb33:collection-hooks@0.8.1
 materialize:materialize@0.97.5
 mdg:validation-error@0.5.1
