@@ -39,6 +39,13 @@ Template.chat.helpers({
     return Session.get('messages');
   },
   destroyed: function(){
+    currentChannel = channel;
+    Session.set('messages', messages);
+    channel.on('messageDeleted', function(message) {
+      messages.remove();
+      Session.set('messages', []);
+    })
+
 
   },
 });

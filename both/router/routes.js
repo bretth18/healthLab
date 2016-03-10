@@ -26,6 +26,9 @@ Router.plugin('ensureSignedIn', {
 Router.route('/chat', {
   waitOn: function () {
     return IRLibLoader.load('//media.twiliocdn.com/sdk/rtc/js/ip-messaging/v0.8/twilio-ip-messaging.min.js');
+    if (err){
+      return Meteor.console.error('twilio connection failed');
+    }
   },
   name: 'chat'
 });
