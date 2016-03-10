@@ -10,7 +10,7 @@
 
 ##Information
 * healthLab.io is currently being developed by Brett Henderson (@bretth18).
-* You can get updates on our project from our Twitter here: https://twitter.com/healthLab_io 
+* You can get updates on our project from our Twitter here: https://twitter.com/healthLab_io
 
 ##Contributing
 * Read our Trello Board for Features/Current Development: https://trello.com/b/RQEUfa4H/healthlab-io
@@ -20,6 +20,6 @@
 
 
 ##Planned Development
-* Twilio IP Messaging to handle our chat service
+* Twilio IP Messaging to handle our chat service, Integrated with IBM's Watson Question and Answer API.
 * Improved user models
 * Task planner/goals page for user
