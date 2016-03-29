@@ -60,7 +60,6 @@ iron:middleware-stack@1.0.11
 iron:router@1.0.12
 iron:url@1.0.11
 jquery@1.11.6-rc.2
-jshint@1.0.2-rc.2
 lai:collection-extensions@0.2.1_1
 launch-screen@1.0.7-rc.2
 livedata@1.0.16-rc.2
