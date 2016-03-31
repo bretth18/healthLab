@@ -1,23 +1,23 @@
 {
-  "name": "healthlab-meteor",
-  "version": "1.0.0",
-  "description": "![healthlablogo](https://cloud.githubusercontent.com/assets/955730/13194182/db593afe-d73c-11e5-8e7b-7c5df89fe997.png)",
-  "keywords": [],
-  "homepage": "https://github.com/bretth18/healthLab#readme",
-  "bugs": {
-    "url": "https://github.com/bretth18/healthLab/issues"
-  },
-  "license": "ISC",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bretth18/healthLab.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "fitbit-node": "^1.0.0",
-    "twilio": "^2.9.0"
-  }
+	"name": "healthlab-meteor",
+	"version": "1.0.0",
+	"description": "![healthlablogo](https://cloud.githubusercontent.com/assets/955730/13194182/db593afe-d73c-11e5-8e7b-7c5df89fe997.png)",
+	"keywords": [],
+	"homepage": "https://github.com/bretth18/healthLab#readme",
+	"bugs": {
+		"url": "https://github.com/bretth18/healthLab/issues"
+	},
+	"license": "ISC",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bretth18/healthLab.git"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"fitbit-node": "^1.0.0",
+		"twilio": "^2.9.0"
+	}
 }
