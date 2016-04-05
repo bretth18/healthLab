@@ -22,6 +22,12 @@ Router.plugin('ensureSignedIn', {
   only: ['dashboard']
 });
 
+
+//router for drugCompare
+Router.route('/compare', {
+  name: 'compare'
+});
+
 //router for chat
 Router.route('/chat', {
   waitOn: function () {
