@@ -14,10 +14,14 @@
 		"url": "git+https://github.com/bretth18/healthLab.git"
 	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "eslint ."
 	},
 	"dependencies": {
 		"fitbit-node": "^1.0.0",
 		"twilio": "^2.9.0"
+	},
+	"devDependencies": {
+		"eslint": "^2.7.0"
 	}
 }

@@ -10,6 +10,13 @@ Meteor.startup(function(){
       var watsonInput;
       //start dialog session
       var dialog = watson.dialog(watsonCredentials);
+
+      app.get('/api/question', function(req, res){
+    // Call the service with a question and get an array with the answers
+    var answers = watson.question(req.query);
+    // Send the answers and the question to the client in json
+    res.json({answers: answers, question: req.query.question});
+});
     }
   });
 });
