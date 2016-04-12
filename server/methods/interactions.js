@@ -5,9 +5,10 @@ Meteor.startup(function() {
             //two values are added to our GET request
             function testJson() {
                 var baseUrl = 'https://rxnav.nlm.nih.gov/REST/';
-                var testUrl = 'https://rxnav.nlm.nih.gov/REST/rxcui?name=xanax'
-                var inteUrl = 'https://rxnav.nlm.nih.gov/REST/interaction?rxcui='
+                var testUrl = 'https://rxnav.nlm.nih.gov/REST/rxcui?name=xanax';
+                var inteUrl = 'https://rxnav.nlm.nih.gov/REST/interaction?rxcui=';
                 var request = Meteor.npmRequire('request');
+
                 //GET request to RESTapi
                 function getCui() {
                     request(testUrl, function(error, response, body) {
