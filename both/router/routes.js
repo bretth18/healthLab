@@ -28,6 +28,11 @@ Router.route('/compare', {
   name: 'compare'
 });
 
+//router for privacy policy
+Router.route('/privacy', {
+  name: 'privacyPolicy'
+});
+
 //router for chat
 Router.route('/chat', {
   waitOn: function () {

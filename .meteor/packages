@@ -48,4 +48,5 @@ oauth1
 manuelschoebel:wait-on-lib
 http
 zimme:active-route
-anti:gagarin
+anti:gagarin@=0.4.12
+markdown
