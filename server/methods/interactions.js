@@ -16,6 +16,8 @@ Meteor.startup(function(){
       });
       //get the rcxui for the drug
       var rcxui1 = info.idGroup[rxnormid];
+
+      
     }
 
 
