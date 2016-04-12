@@ -36,6 +36,13 @@ Meteor.startup(function() {
                     });
                 }
 
+                function postInteractionModel(interJson, err) {
+                  //parse out JSON body for data that we need
+                //  var interString = interJson.interactionTypeGroup.
+
+
+                }
+
             }
 
 
