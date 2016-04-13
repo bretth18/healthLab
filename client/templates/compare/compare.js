@@ -24,7 +24,13 @@ Template.compare.helpers({
 });
 
 Template.name.events({
-  "click #foo": function(event, template){
+  "click #submit": function(event, template){
+    var drug1;
+    var drug2;
+
+    Meteor.call('getDrugJson');
+
+    
 
   }
 });
