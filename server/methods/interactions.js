@@ -1,15 +1,14 @@
-// handles grabbing our data from drug interactionsAPI
+//handles grabbing our data from drug interactionsAPI
 Meteor.startup(function() {
     Meteor.methods({
         getDrugJSON: function() {
-            // two values are added to our GET request
+            //two values are added to our GET request
             function testJson() {
                 var baseUrl = 'https://rxnav.nlm.nih.gov/REST/';
-                var testUrl = 'https://rxnav.nlm.nih.gov/REST/rxcui?name=xanax';
-                var inteUrl = 'https://rxnav.nlm.nih.gov/REST/interaction?rxcui=';
+                var testUrl = 'https://rxnav.nlm.nih.gov/REST/rxcui?name=xanax'
+                var inteUrl = 'https://rxnav.nlm.nih.gov/REST/interaction?rxcui='
                 var request = Meteor.npmRequire('request');
-
-                // GET request to RESTapi
+                //GET request to RESTapi
                 function getCui() {
                     request(testUrl, function(error, response, body) {
                         if (!error && response.statusCode == 200) {
@@ -20,12 +19,12 @@ Meteor.startup(function() {
                         }
                     });
                 }
-                // get the rcxui for the drug
+                //get the rcxui for the drug
                 var rcxui1 = info.idGroup[rxnormid];
                 var rcxui2 = info.idGroup[rxnormid];
 
                 function getInteraction() {
-                    // build our GET request
+                    //build our GET request
                     let finalUrl = `inteUrl{rxui1}&{rxui2}`; //ES6
                     request(finalUrl, function(error, response, body) {
                         if (!error && response.statusCode == 200) {
@@ -35,13 +34,6 @@ Meteor.startup(function() {
                             console.log(err);
                         }
                     });
-                }
-
-                function postInteractionModel(interJson, err) {
-                  // parse out JSON body for data that we need
-                //  var interString = interJson.interactionTypeGroup.
-
-
                 }
 
             }

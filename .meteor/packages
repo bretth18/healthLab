@@ -14,6 +14,7 @@ matb33:collection-hooks
 dburles:factory
 anti:fake
 cunneen:mailgun
+iron:router
 yasinuslu:blaze-meta
 materialize:materialize
 useraccounts:materialize
@@ -35,6 +36,7 @@ random
 ejson
 spacebars
 check
+useraccounts:iron-routing
 underscorestring:underscore.string
 standard-minifier-css
 standard-minifier-js
@@ -49,6 +51,3 @@ zimme:active-route
 anti:gagarin@=0.4.12
 markdown
 ecmascript
-kadira:flow-router
-useraccounts:flow-routing
-kadira:blaze-layout
