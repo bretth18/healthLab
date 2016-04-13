@@ -1,3 +1,3 @@
-ItemsNewController = AppController.extend({
-  
-});
+// ItemsNewController = AppController.extend({
+//
+// });
