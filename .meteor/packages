@@ -48,7 +48,7 @@ http
 zimme:active-route
 anti:gagarin@=0.4.12
 markdown
-ecmascript
-kadira:flow-router
 useraccounts:flow-routing
 kadira:blaze-layout
+iron:router
+useraccounts:iron-routing

@@ -26,7 +26,7 @@ Meteor.startup(function() {
 
                 function getInteraction() {
                     // build our GET request
-                    let finalUrl = `inteUrl{rxui1}&{rxui2}`; //ES6
+                    var finalUrl = inteUrl + rcxui1 + '&' + rcxui2; /*`inteUrl{rxui1}&{rxui2}`; *///ES6
                     request(finalUrl, function(error, response, body) {
                         if (!error && response.statusCode == 200) {
                             var interJson = JSON.parse(body);
