@@ -8,7 +8,7 @@ import React from 'react';
 Reaktor.init(
   <Router>
     <Route path="/" content={Home} layout={MainLayout} />
-    <Route path="/register" content={Register} Layout={MainLayout} />
+    <Route path="/register" content={Register} layout={MainLayout} />
   </Router>
 );
 
