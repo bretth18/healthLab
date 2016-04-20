@@ -1,27 +1,16 @@
 # Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
 #
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
+react
+npm-container
+cosmos:browserify
 accounts-password
-alanning:roles
-cmather:handlebars-server@2.0.0
-dburles:collection-helpers
-reywood:publish-composite
-momentjs:moment
-mrt:underscore-string-latest
-matb33:collection-hooks
-dburles:factory
-anti:fake
-cunneen:mailgun
-yasinuslu:blaze-meta
-materialize:materialize
-useraccounts:materialize
-aldeed:autoform@=5.8.1
-aldeed:collection2
-gildaspk:autoform-materialize@=0.0.26
-fortawesome:fontawesome
-meteortoys:allthings
+accounts-ui
+kadira:flow-router
+kadira:reaktor
 meteor-base
 mobile-experience
 mongo
@@ -35,20 +24,6 @@ random
 ejson
 spacebars
 check
-underscorestring:underscore.string
+ecmascript
 standard-minifier-css
 standard-minifier-js
-selaias:fit-api
-selaias:accounts-fitbit
-selaias:fitbit
-oauth
-oauth1
-manuelschoebel:wait-on-lib
-http
-zimme:active-route
-anti:gagarin@=0.4.12
-markdown
-ecmascript
-kadira:flow-router
-useraccounts:flow-routing
-kadira:blaze-layout
