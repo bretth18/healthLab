@@ -45,6 +45,7 @@ less@2.5.7
 livedata@1.0.17
 localstorage@1.0.8
 logging@1.0.11
+materialize:materialize@0.97.5
 meteor@1.1.13
 meteor-base@1.0.3
 minifier-css@1.1.10
@@ -57,7 +58,6 @@ modules-runtime@0.6.2
 mongo@1.1.6
 mongo-id@1.0.3
 npm-bcrypt@0.7.8_2
-npm-container@1.1.0
 npm-mongo@1.4.42
 observe-sequence@1.0.10
 ordered-dict@1.0.6

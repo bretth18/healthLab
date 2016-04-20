@@ -4,8 +4,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-react
-npm-container
 cosmos:browserify
 accounts-password
 accounts-ui
@@ -27,3 +25,4 @@ check
 ecmascript
 standard-minifier-css
 standard-minifier-js
+materialize:materialize
