@@ -7,7 +7,7 @@ Home = React.createClass({
         <h4>Welcome to healthLab.io</h4>
     <div className="card">
     <div className="card-image waves-effect waves-block waves-light">
-      <img className="activator" src="https://cloud.githubusercontent.com/assets/955730/13194182/db593afe-d73c-11e5-8e7b-7c5df89fe997.png" height='400' width='100' />
+      <img className="activator" src="https://cdn.drivenlocal.com/wp-content/uploads/2015/10/Material-design.jpg" height='400' width='100' />
     </div>
     <div className="card-content">
       <span className="card-title activator grey-text text-darken-4">Hello there!<i className="material-icons right">more_vert</i></span>
