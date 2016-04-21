@@ -20,6 +20,7 @@
 
 
 ##Planned Development
+* We're moving to React! Entire codebase is being rewritten, check it out on branch `dev`
 * Twilio IP Messaging to handle our chat service, Integrated with IBM's Watson Question and Answer API.
 * Improved user models
 * Task planner/goals page for user
