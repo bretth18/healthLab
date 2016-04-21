@@ -8,9 +8,25 @@ import React from 'react';
 Reaktor.init(
   <Router>
     <Route path="/" content={Home} layout={MainLayout} />
-    <Route path="/register" content={Register} layout={MainLayout} />
+    <Route path="/register" content={Register} layout={MainLayout} triggersEnter={isLoggedIn} />
+    <Route path="/login" content={Login} layout={MainLayout} triggersEnter={isLoggedIn} />
+    <Route path="/changePassword" content={ChangePassword} layout={MainLayout} triggersEnter={isNotLoggedIn} />
   </Router>
 );
+
+// checks user log status
+function isLoggedIn(context, doRedirect) {
+  if (User.isLoggedIn()){
+    console.log("user is logged in");
+    doRedirect('/');
+  }
+}
+
+function isNotLoggedIn(context, doRedirect) {
+  if(!User.isLoggedIn()) {
+    doRedirect('/');
+  }
+}
 
 // Reaktor doensn't have a notFound component yet
 FlowRouter.notFound = {

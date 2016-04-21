@@ -1,6 +1,10 @@
+
+// imports
 import React from 'react';
 
+// react class for register
 Register = React.createClass({
+  // function to handle form submission
   onSubmit(e) {
     e.preventDefault();
     //testing remove
@@ -8,9 +12,9 @@ Register = React.createClass({
     var element = $(e.target);
 
     // grab form elements
-    var email = element.find("email").val();
+    var email = element.find("#email").val();
     var password = element.find("#password").val();
-    var confirmPassword = element.find("confirmPassword").val();
+    var confirmPassword = element.find("#confirmPassword").val();
 
     //validate password
     // TODO: more validation
@@ -22,18 +26,14 @@ Register = React.createClass({
       // call meteor function to create account
       Accounts.createUser(accountInfo, function(er){
         if(er){
-          Materialize.toast('An error has occured creating your account!', 4000); // 4000 is the duration of the toast
+          Materialize.toast(er.reason, 4000); // 4000 is the duration of the toast
         } else {
-          Meteor.loginWithPassword(email, password, function(er) {
-            if (er){
-              Materialize.toast('failed to login... sorry?', 4000) // 4000 is the duration of the toast
-            } else {
-              //Redirect
               console.log("login worked");
+              // redirect
+              FlowRouter.go('/');
+
             }
           });
-        }
-      });
     } else {
       Materialize.toast('Passwords do not match!', 4000); // 4000 is the duration of the toast
     }

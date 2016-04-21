@@ -26,3 +26,5 @@ ecmascript
 standard-minifier-css
 standard-minifier-js
 materialize:materialize
+msavin:mongol
+fourseven:scss
