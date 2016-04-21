@@ -14,8 +14,11 @@ Reaktor.init(
     <Route path="/dashboard" content={Dashboard} layout={MainLayout} />
     <Route path="/about" content={About} layout={MainLayout} />
     <Route path="/profile" content={Profile} layout={MainLayout} />
+    <Route path="/editprofile" content={EditProfile} layout={MainLayout} />
   </Router>
 );
+
+// TODO: create stacked layout for rendering two componenents side by side, need for editprofile
 
 // checks user log status
 function isLoggedIn(context, doRedirect) {
@@ -28,6 +31,19 @@ function isLoggedIn(context, doRedirect) {
 function isNotLoggedIn(context, doRedirect) {
   if(!User.isLoggedIn()) {
     doRedirect('/');
+  }
+}
+
+// checks for user profile data
+function profile(){
+  if (User.isLoggedIn()){
+    // return user profile data
+    getProfile();
+  } else {
+    console.log('no data in user profile');
+    // redirect to edit profile component
+    //
+    doRedirect('/profile');
   }
 }
 

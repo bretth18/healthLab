@@ -21,5 +21,8 @@ User = {
 
   create: function(opts, callback) {
     Accounts.createUser(opts, callback);
+  },
+  updateProfile: function(){
+    return User.get().profile.update;
   }
 };

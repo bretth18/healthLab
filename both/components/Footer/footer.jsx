@@ -2,7 +2,6 @@ import React from 'react';
 
 Footer = React.createClass({
   render(){
-
     return (
       <footer className="page-footer" id="main">
         <div className="footer-copyright" id="footer">
