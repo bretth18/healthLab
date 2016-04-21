@@ -4,6 +4,11 @@
 [![Circle CI](https://circleci.com/gh/bretth18/healthLab.svg?style=svg)](https://circleci.com/gh/bretth18/healthLab)
 [![Gitter](https://badges.gitter.im/bretth18/healthLab.svg)](https://gitter.im/bretth18/healthLab?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
+##`dev` Branch Information
+* This branch is using Meteor 1.3.2.2, and React.js
+* Entire project is being shifted to a new codebase, this is the development branch
+
+
 ##Description
 - reinventing how you manage your health.
 - We're providing a tool for patients to connect with their health. Track your diet, prescriptions, appointments, receive real-time analytics on your progress, and compare potential reactions between drugs.
