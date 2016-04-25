@@ -23,6 +23,14 @@
 * Issues: https://github.com/bretth18/healthLab/issues
 * Talk to us on GitterIM!
 
+  ##Getting Started
+
+  * Make sure you have Meteor.js and Node installed!
+  * `git clone https://github.com/bretth18/healthLab.git`
+  * `git checkout dev`
+  * `meteor npm install`
+  * run `meteor` to build and test.
+
 
 ##Planned Development
 * Twilio IP Messaging to handle our chat service, Integrated with IBM's Watson Question and Answer API.
