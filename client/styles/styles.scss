@@ -1,6 +1,9 @@
 /* CSS declarations go here */
 // @import '{}/node_modules/materialize-csss/sass/materialize.scss';
 
+// import main scss file
+@import "{poetic:materialize-scss}/sass/materialize.scss";
+
 h4{
   font-family: roboto-thin;
 }

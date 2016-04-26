@@ -22,6 +22,7 @@
   "dependencies": {
     "classnames": "^2.2.3",
     "externalify": "^0.1.0",
+    "jquery": "^2.2.3",
     "materialize-css": "^0.97.6",
     "meteor-node-stubs": "^0.2.3",
     "react": "^15.0.1",
