@@ -11,3 +11,19 @@ h4{
 brand-logo{
   font-family: light-italic;
 }
+
+
+footer {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}
+
+main {
+  flex: 1 0 auto;
+}

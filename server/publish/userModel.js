@@ -1,11 +1,10 @@
-// import Meteor from 'meteor/meteor';
-//
-//
-// Meteor.publish(Meteor.users.profile, function(userProfile){
-//
-//   //create schema to pub our user profile
-//   new SimpleSchema({
-//     // Meteor.users.profile
-//   });
-//
-// });
+import { Meteor } from 'meteor/meteor';
+
+// publishing users collection to client
+Meteor.publish("users", function(err){
+  if (err){
+    console.log("error, failed to publish on server", err);
+  } else {
+    return Meteor.users.find();
+  }
+});

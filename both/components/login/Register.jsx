@@ -1,6 +1,7 @@
 
 // imports
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 
 // react class for register
 Register = React.createClass({
@@ -12,23 +13,43 @@ Register = React.createClass({
     var element = $(e.target);
 
     // grab form elements
+    var firstName = element.find("#first_name").val();
     var email = element.find("#email").val();
     var password = element.find("#password").val();
     var confirmPassword = element.find("#confirmPassword").val();
 
+    // create a userObject to pass to server
+    // var userObject = {
+    //   first_name: firstName,
+    //   email_val: email,
+    // };
+
     //validate password
     // TODO: more validation
     if(password === confirmPassword && password !== "" && confirmPassword !== ""){
-      var accountInfo = {
+      var userInfo = {
         email: email,
         password: password
       };
       // call meteor function to create account
-      Accounts.createUser(accountInfo, function(er){
+      Accounts.createUser(userInfo, function(er){
         if(er){
           Materialize.toast(er.reason, 4000); // 4000 is the duration of the toast
         } else {
               console.log("login worked");
+              // call server side method to send verification email
+              Meteor.call("emailVerification", userInfo, function(err, res){
+                if(err){
+                  console.log("error", err);
+                  // optional - do we want to notify user of fail verification?
+                  Materialize.toast(err.reason, 4000);
+                }
+                if(res){
+                  // debugging - remove
+                  console.log('email verification sent');
+                  Materialize.toast('Verification email sent! - Check your inbox!');
+                }
+              });
               // redirect
               FlowRouter.go('/');
 
@@ -37,7 +58,6 @@ Register = React.createClass({
     } else {
       Materialize.toast('Passwords do not match!', 4000); // 4000 is the duration of the toast
     }
-
 
   },
   render() {
