@@ -18,7 +18,6 @@ Reaktor.init(
   </Router>
 );
 
-// TODO: create stacked layout for rendering two componenents side by side, need for editprofile
 
 // checks user log status
 function isLoggedIn(context, doRedirect) {

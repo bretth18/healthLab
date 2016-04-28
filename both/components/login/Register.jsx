@@ -18,11 +18,11 @@ Register = React.createClass({
     var password = element.find("#password").val();
     var confirmPassword = element.find("#confirmPassword").val();
 
-    // create a userObject to pass to server
-    // var userObject = {
-    //   first_name: firstName,
-    //   email_val: email,
-    // };
+  //  create a userObject to pass to server
+    var profileObject = {
+      first_name: firstName,
+      email_val: email,
+    };
 
     //validate password
     // TODO: more validation
