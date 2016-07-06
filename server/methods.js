@@ -46,6 +46,7 @@ if (Meteor.isServer) {
             });
 
             req.end();
+            // FYI, this is a shit-ton of data
             return reqData;
         },
 
